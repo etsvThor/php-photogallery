@@ -14,11 +14,11 @@
 </head>
 <body>
 
-<div id="wrapper">
+<div class="margin20">
     <h1>Photo index</h1>
     <div class="accordion" data-role='accordion'>
         <?php
-        $allfolders = glob('./pictures/*', GLOB_ONLYDIR);
+        $allfolders = glob('pictures/*', GLOB_ONLYDIR);
         $numfolders = count($allfolders);
         //look if there is a file named 'desc.txt' that contains the descriptions for each image
         if ($numfolders == 0) {
@@ -29,18 +29,20 @@
                 ?>
                 <div class="frame">
                     <div class="heading"><?php echo $thismainfolder; ?></div>
-                    <div class="content"><?php
-                        $subfolders = glob('./'.$thismainfolder . '/*', GLOB_ONLYDIR);
+                    <li class="content"><?php
+                        $subfolders = glob($thismainfolder . '/*', GLOB_ONLYDIR);
                         $numsubfolders = count($subfolders);
                         if ($numsubfolders == 0) {
                             echo 'No subfolders';
                         } else {
+                            echo '<ul>';
                             for ($s = 0; $s < $numsubfolders; $s++) {
                                 ?>
-                                <a href="photo.php?main=<?php echo $f; ?>&amp;sub=<?php echo $s; ?>"
-                                   title="<?php echo $subfolders[$s]; ?>"><?php echo $subfolders[$s]; ?></a>
+                                <li><a href="photo.php?main=<?php echo $f; ?>&amp;sub=<?php echo $s; ?>"
+                                            title="<?php echo $subfolders[$s]; ?>"><?php echo $subfolders[$s]; ?></a></li>
                                 <?php
                             }
+                            echo '</ul>';
                         }
                         ?>
                     </div>

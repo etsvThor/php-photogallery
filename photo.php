@@ -7,7 +7,7 @@
 
 </head>
 <body>
-<div id="container">
+<div class="margin20">
 
     <?php
     /**
@@ -23,10 +23,10 @@
         $n = $_GET['sub'];
         if(is_int($n) and is_int($n) and $m >= 0 and  $n >=0 ){
 
-            $mainfolders = glob('./pictures/*', GLOB_ONLYDIR);
+            $mainfolders = glob('pictures/*', GLOB_ONLYDIR);
             $thismainfolder = (array_values($mainfolders))[$m];
             if(strlen($thismainfolder) > 0){
-                $subfolders = glob('./'.$thismainfolder . '/*', GLOB_ONLYDIR);
+                $subfolders = glob($thismainfolder . '/*', GLOB_ONLYDIR);
                 $thissubfolder = (array_values($subfolders))[$n];
                 ?>
                 <h1>Waldur foto archief</h1>
@@ -36,7 +36,7 @@
                     //$filenames is an array of all filenames in 'location' with .jpg as extension
                     //Glob is a function to obtain all files in a specified folder ($location), with a specified filename (*, so not specified here) and extension (.jpg)
 
-                    $filenames = glob('./'.$thissubfolder . '/*.jpg');
+                    $filenames = glob($thissubfolder . '/*.jpg');
                     $filenames = (array_values($filenames));
                     $numimgs = count($filenames);
                     //look if there is a file named 'desc.txt' that contains the descriptions for each image
@@ -69,10 +69,10 @@
                 } else {
                 echo 'Invalid folder supplied.';
             }} else {
-                echo 'Invalid folder supplied.';
-        }} else {
             echo 'Invalid folder supplied.';
-        }
+        }} else {
+                        echo 'Invalid folder supplied.';
+                    }
         ?>
     </div>
 </div>
