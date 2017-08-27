@@ -1,3 +1,4 @@
+
 <html>
 <head>
     <title>Waldur foto archief</title>
@@ -19,22 +20,24 @@
  */
 
 if (isset($_GET['main'])) {
-  /* Mainfolder is obtained using the name of the folder as 'main' get string
+  /* Mainfolder is obtained as directory index of the root folder '/pictures/'
      Subfolder is obtained as directory index of the folders in the mainfolder.
      Photos are pulled from 'pictures/mainfolder/subfolder/*.jpg'.
      */
-    $thismainfolder = $_GET['main'];
+    $m = $_GET['main'];
     $n = $_GET['sub'];
+
+    $mainfolders = glob('pictures/*', GLOB_ONLYDIR);
+    $thismainfolder = (array_values($mainfolders))[$m];
+
     $subfolders = glob('pictures/'.$thismainfolder.'/*', GLOB_ONLYDIR);
-    asort($subfolders);
     $thissubfolder = (array_values($subfolders))[$n];
     echo "<div class=\"imgblock\"><h3>$thismainfolder -- $thissubfolder</h3>";
 
     //$filenames is an array of all filenames in 'location' with .jpg as extension
     //Glob is a function to obtain all files in a specified folder ($location), with a specified filename (*, so not specified here) and extension (.jpg)
 
-    $filenames = glob('pictures/'.$thismainfolder.'/'.$thissubfolder.'/*.jpg', GLOB_NOSORT);
-    asort($filenames);
+    $filenames = glob('pictures/'.$thismainfolder.'/'.$thissubfolder.'/*.jpg');
     $filenames = (array_values($filenames));
     $numimgs = count($filenames);
     //look if there is a file named 'desc.txt' that contains the descriptions for each image
@@ -61,6 +64,7 @@ if (isset($_GET['main'])) {
 						<img src=\"$smallimgsrc\" alt=\"$alt\"	 />
 				</div>
 			</a>
+
 
 			";
         }

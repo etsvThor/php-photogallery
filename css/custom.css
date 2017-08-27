@@ -1,1 +1,41 @@
 /*css*/
+/*a block for a group of images*/
+div.imgblock{
+	clear:both;
+	padding: 10px;
+}
+/*a image in a group*/
+div.floatimg{
+	/*border: 1px solid black;*/
+	float:left;
+	display:block;
+	width: 203px;
+	margin: 3px;
+	padding: 3px;
+	position:relative;
+	}
+div.floatimg>div{ /*desc text*/
+	display:inline-block;
+	margin:5px;
+	width: 200px;
+	height: 2em; /*Twee regels beschrijving tekst*/
+	}
+div.floatimg:hover{
+	border: 1px solid #444;
+	margin: 2px;
+	padding: 3px;
+}
+/*light border around every img*/
+div.floatimg>img{
+	border: 1px solid #222;
+}
+div.floatimg>img.overlay{ /*image overlay, for play buttons on a image*/
+	opacity: 0.5;
+	position:absolute;
+	left: 55px;
+	top: 30px;
+	border: none!important;
+}
+div.floatimg:hover>img.overlay{ /*image overlay, for play buttons on a image*/
+	opacity: 0.8;
+}

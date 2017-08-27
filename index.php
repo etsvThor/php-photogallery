@@ -1,7 +1,7 @@
 <?php
 /**
  * Jeroen van Oorschot 2017
- * Reads a list of folders, and shows its subfolders as hyperlinks.
+ * Reads a list of folders, and shows its subfolders as hyperlinks to photo.php.
  */
 ?>
 <!DOCTYPE html>
@@ -19,7 +19,6 @@
  <div class="accordion" data-role='accordion'>
 <?
    $allfolders = glob('pictures/*', GLOB_ONLYDIR);
-   sort($allfolders);
    $numfolders = count($allfolders);
        //look if there is a file named 'desc.txt' that contains the descriptions for each image
    if ($numfolders == 0) {
@@ -38,7 +37,7 @@
                 }else{
                   for($s=0; $s < $numsubfolders; $s++){
                     ?>
-                      <a href="photo.php?main=<?php echo $thismainfolder; ?>&amp;sub=<?php echo $s; ?>" title="<?php echo $subfolders[$s]; ?>"><?php echo $subfolders[$s]; ?></a>
+                      <a href="photo.php?main=<?php echo $f; ?>&amp;sub=<?php echo $s; ?>" title="<?php echo $subfolders[$s]; ?>"><?php echo $subfolders[$s]; ?></a>
                     <?php
                   }
                 }
