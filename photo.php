@@ -1,11 +1,6 @@
 <html>
 <head>
     <title>Waldur foto archief</title>
-    <style type="text/css">
-        body {
-            background-color: #bbb;
-        }
-    </style>
     <link href="css/lightbox.css" rel="stylesheet">
     <link href="css/metro.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
@@ -13,12 +8,13 @@
 </head>
 <body>
 <div id="container">
+
     <?php
     /**
      * Jeroen van Oorschot 2017
      */
 
-    if (isset($_GET['main'])) {
+    if (isset($_GET['main']) && isset($_GET['sub'])) {
     /* Mainfolder is obtained as directory index of the root folder '/pictures/'
        Subfolder is obtained as directory index of the folders in the mainfolder.
        Photos are pulled from 'pictures/mainfolder/subfolder/*.jpg'.
@@ -32,6 +28,8 @@
     $subfolders = glob($thismainfolder . '/*', GLOB_ONLYDIR);
     $thissubfolder = (array_values($subfolders))[$n];
     ?>
+    <h1>Waldur foto archief</h1>
+    <a href="index.php" title="back" class="button">Terug</a>
     <div class="imgblock"><h3><?php echo $thissubfolder; ?></h3>
         <?php
         //$filenames is an array of all filenames in 'location' with .jpg as extension

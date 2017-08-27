@@ -6,7 +6,7 @@ div.imgblock{
 }
 /*a image in a group*/
 div.floatimg{
-	/*border: 1px solid black;*/
+	border: 1px solid #999;
 	float:left;
 	display:block;
 	width: 203px;
@@ -14,15 +14,9 @@ div.floatimg{
 	padding: 3px;
 	position:relative;
 	}
-div.floatimg>div{ /*desc text*/
-	display:inline-block;
-	margin:5px;
-	width: 200px;
-	height: 2em; /*Twee regels beschrijving tekst*/
-	}
 div.floatimg:hover{
 	border: 1px solid #444;
-	margin: 2px;
+	margin: 3px;
 	padding: 3px;
 }
 /*light border around every img*/
