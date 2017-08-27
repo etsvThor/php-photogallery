@@ -67,11 +67,11 @@
                         }
                     }
                 } else {
-                echo 'Invalid folder supplied.';
+                echo 'Invalid folder supplied. (1)';
             }} else {
-            echo 'Invalid folder supplied.';
+            echo 'Invalid folder supplied. (2)';
         }} else {
-                        echo 'Invalid folder supplied.';
+                        echo 'Invalid folder supplied. (3)';
                     }
         ?>
     </div>

@@ -29,7 +29,7 @@
                 ?>
                 <div class="frame">
                     <div class="heading"><?php echo $thismainfolder; ?></div>
-                    <li class="content"><?php
+                    <div class="content"><?php
                         $subfolders = glob($thismainfolder . '/*', GLOB_ONLYDIR);
                         $numsubfolders = count($subfolders);
                         if ($numsubfolders == 0) {
