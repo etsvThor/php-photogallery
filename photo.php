@@ -19,9 +19,9 @@
        Subfolder is obtained as directory index of the folders in the mainfolder.
        Photos are pulled from 'pictures/mainfolder/subfolder/*.jpg'.
        */
-        $m = $_GET['main'];
-        $n = $_GET['sub'];
-        if(is_int($n) and is_int($n) and $m >= 0 and  $n >=0 ){
+        $m = intval($_GET['main']);
+        $n = intval($_GET['sub']);
+        if(is_int($m) and is_int($n) and $m >= 0 and  $n >=0 ){
 
             $mainfolders = glob('pictures/*', GLOB_ONLYDIR);
             $thismainfolder = (array_values($mainfolders))[$m];
