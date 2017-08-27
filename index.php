@@ -17,7 +17,7 @@
 <div id="wrapper">
     <h1>Photo index</h1>
     <div class="accordion" data-role='accordion'>
-        <?
+        <?php
         $allfolders = glob('pictures/*', GLOB_ONLYDIR);
         $numfolders = count($allfolders);
         //look if there is a file named 'desc.txt' that contains the descriptions for each image

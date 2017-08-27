@@ -32,12 +32,12 @@
     $subfolders = glob($thismainfolder . '/*', GLOB_ONLYDIR);
     $thissubfolder = (array_values($subfolders))[$n];
     ?>
-    <div class="imgblock"><h3><?php echo $thismainfolder . '--' . $thissubfolder; ?></h3>";
+    <div class="imgblock"><h3><?php echo $thissubfolder; ?></h3>
         <?php
         //$filenames is an array of all filenames in 'location' with .jpg as extension
         //Glob is a function to obtain all files in a specified folder ($location), with a specified filename (*, so not specified here) and extension (.jpg)
 
-        $filenames = glob($thismainfolder . '/' . $thissubfolder . '/*.jpg');
+        $filenames = glob($thissubfolder . '/*.jpg');
         $filenames = (array_values($filenames));
         $numimgs = count($filenames);
         //look if there is a file named 'desc.txt' that contains the descriptions for each image
